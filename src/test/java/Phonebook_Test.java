@@ -9,7 +9,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class Phonebook_Test {  @Test
-public void Persontest(){
+public void Persontest1(){
     Person person1=new Person("sina","0933078301");
     Phonebook phonebook=new Phonebook();
     phonebook.addContact(person1);
@@ -17,16 +17,42 @@ public void Persontest(){
     assertEquals(null, phonebook.getPhoneNumber("sina"));
 
 }  @Test
-public void Persontes0t(){
+public void Persontest2(){
     Person person1=new Person("sina","09330783017");
     Phonebook phonebook=new Phonebook();
     phonebook.addContact(person1);
 
     assertEquals("09330783017", phonebook.getPhoneNumber("sina"));
 
+}@Test
+public void Persontest3(){
+    Person person1=new Person("sina","09330783017");
+    Person person2=new Person("sepehri","09330783011");
+    Phonebook phonebook=new Phonebook();
+    phonebook.addContact(person1);
+    phonebook.addContact(person2);
+
+
+    assertEquals("Contact Not Found", phonebook.getPhoneNumber("sepehr"));
+
+}@Test
+public void Persontest4() {
+
+    Phonebook phonebook = new Phonebook();
+    phonebook.addContact(null);
+    assertEquals("Contact Not Found", phonebook.getPhoneNumber("sepehr"));
+
+
+}@Test
+public void Persontest5() {
+    Person person1 = new Person("sina", "09330783017");
+    Person person2 = new Person("sepehr", "09330783011");
+    Phonebook phonebook = new Phonebook();
+    phonebook.addContact(person1);
+    phonebook.addContact(person2);
+
+
+    assertEquals(1, phonebook.getContact("sepehr"));
+
 }
-
-
-
-
 }
