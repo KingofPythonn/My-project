@@ -54,5 +54,40 @@ public void Persontest5() {
 
     assertEquals(1, phonebook.getContact("sepehr"));
 
+}@Test
+public void Persontest6() {
+
+    Phonebook phonebook = new Phonebook();
+    phonebook.addContact(null);
+
+
+    assertEquals(0, phonebook.getContact("sepehr"));
+
+}@Test
+public void Persontest7() {
+    Person person1 = new Person("sina", "09330783017");
+    Person person2 = new Person("sepehr", "09330783011");
+    Phonebook phonebook = new Phonebook();
+    phonebook.addContact(person1);
+    phonebook.addContact(person2);
+
+
+    assertEquals(0, phonebook.getContact("ser"));
+
+}@Test
+public void Persontest8() {
+    Person person1 = new Person("sina", "09330783017");
+    Person person2 = new Person("sepehr", "09330783011");
+    Phonebook phonebook = new Phonebook();
+    phonebook.addContact(person1);
+    phonebook.addContact(person2);
+
+
+    assertEquals("Contact Not Found", phonebook.getPhoneNumber("ser"));
+
 }
+
+
+
+
 }
