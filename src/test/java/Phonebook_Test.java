@@ -8,6 +8,10 @@
  */
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+
+
+
 public class Phonebook_Test {  @Test
 public void Persontest1(){
     Person person1=new Person("sina","0933078301");
@@ -153,8 +157,113 @@ public void Persontest8() {
 
         assertEquals(0, phonebook.updateContactPhoneNumber("rostam","09330783018"));
 
+    }@Test
+    public void Persontest15() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+
+        assertEquals(1, phonebook.deleteContact("sina"));
+
+    }
+    @Test
+    public void Persontest16() {
+
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(null);
+
+
+        assertEquals(0, phonebook.deleteContact("sepehr"));
+
+    }
+    @Test
+    public void Persontest17() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+
+        assertEquals(0, phonebook.deleteContact("rostam"));
+
+    }
+    @Test
+    public void Persontest18() {
+
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+
+        ArrayList<String> contacts = new ArrayList<String>();
+        phonebook.addContact(person1);
+
+        phonebook.addContact(person2);
+        contacts.add(String.valueOf(person1));
+        contacts.add(String.valueOf(person2));
+
+
+
+        assertEquals(contacts, phonebook.getAllContacts());
+
+    }
+    @Test
+    public void Persontest19() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        Person person = new Person("sina","09113561665");
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+        phonebook.setAllContactsHidden();
+        phonebook.setAllContactsUnHidden();
+
+        assertEquals(3, person.getId());
+
+
+    }
+    @Test
+    public void Persontest21() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+
+
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+        phonebook.setAllContactsHidden();
+
+
+        assertEquals(true, person1.isHidden());
+
+    }
+    @Test
+    public void Persontest22() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+
+
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+        phonebook.setAllContactsHidden();
+        phonebook.setAllContactsUnHidden();
+
+
+
+        assertEquals(false, person2.isHidden());
+
     }
 
 
 
-}
+
+
+    }
+
+
+
+

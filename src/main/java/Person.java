@@ -13,7 +13,7 @@ public class Person {
                 this.phone = phone;
             else throw new IllegalArgumentException();
         } catch (IllegalArgumentException e){
-            System.out.println("Your Phone Number Should have 11 digits and starts with 09");;
+            System.out.println("Your Phone Number Should have 11 digits and starts with 09");
         }
         this.id = identifier;
         this.isHidden = false;
