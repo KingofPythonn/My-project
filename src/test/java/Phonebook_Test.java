@@ -86,7 +86,74 @@ public void Persontest8() {
     assertEquals("Contact Not Found", phonebook.getPhoneNumber("ser"));
 
 }
+    @Test
+    public void Persontest9() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
 
+
+        assertEquals(1, phonebook.updateContactName("sina","aryan"));
+
+    }
+    @Test
+    public void Persontest10() {
+
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(null);
+
+
+        assertEquals(0, phonebook.updateContactName("sepehr","sina"));
+
+    }
+    @Test
+    public void Persontest11() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+
+        assertEquals(0, phonebook.updateContactName("rostam","aryan"));
+
+    }
+    @Test
+    public void Persontest12() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+
+        assertEquals(1, phonebook.updateContactPhoneNumber("sina","09113561666"));
+
+    }
+    @Test
+    public void Persontest13() {
+
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(null);
+
+
+        assertEquals(0, phonebook.updateContactPhoneNumber("sepehr","09330783017"));
+
+    }
+    @Test
+    public void Persontest14() {
+        Person person1 = new Person("sina", "09330783017");
+        Person person2 = new Person("sepehr", "09330783011");
+        Phonebook phonebook = new Phonebook();
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+
+        assertEquals(0, phonebook.updateContactPhoneNumber("rostam","09330783018"));
+
+    }
 
 
 
